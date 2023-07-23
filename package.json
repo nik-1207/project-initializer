@@ -1,0 +1,27 @@
+{
+  "name": "project-initializer",
+  "version": "1.0.0",
+  "repository": "https://github.com/nik-1207/project-initializer.git",
+  "license": "MIT",
+  "author": "nik-1207 <nmknikhilkashyap@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "format": "eslint --config .eslintrc && prettier src/* -w && sort-package-json",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^5.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0",
+    "sort-package-json": "^2.5.1",
+    "typescript": "^5.1.6"
+  }
+}
