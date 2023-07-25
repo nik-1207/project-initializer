@@ -1,6 +1,7 @@
 import { program } from "commander";
 import inquirer from "inquirer";
 import { Language, PackageManager, ProjectInfo } from "./types";
+import { initialize } from "./utils";
 
 program
   .name("project initializer")
@@ -8,7 +9,7 @@ program
   .version("0.0.0");
 
 program.command("init").action(async () => {
-  const answer = await inquirer.prompt<ProjectInfo>([
+  const projectInfo = await inquirer.prompt<ProjectInfo>([
     {
       message: "Project title",
       type: "input",
@@ -30,7 +31,7 @@ program.command("init").action(async () => {
       name: "projectType",
     },
   ]);
-  console.log(answer);
+  await initialize(projectInfo);
 });
 
 program.parse();

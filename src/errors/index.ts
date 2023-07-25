@@ -4,5 +4,6 @@ export class UnsupportedError extends Error {
   name = "Unsupported Error";
   constructor(message: string) {
     super(message);
+    this.message = message;
   }
 }
