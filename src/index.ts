@@ -30,7 +30,7 @@ program.command("init").action(async () => {
       name: "projectType",
     },
   ]);
-  console.log(answer)
+  console.log(answer);
 });
 
 program.parse();
