@@ -1,50 +1,86 @@
-import { mkdir } from "fs/promises";
+import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 import { ProjectInfo } from "../types";
 import { spawn } from "child_process";
 import chalk from "chalk";
 import { UnsupportedError } from "../errors";
+import axios from "axios";
 
 async function createDir(path: string): Promise<void> {
   await mkdir(path);
 }
 
-function processHandler(childProcess: ReturnType<typeof spawn>, processName: string): void {
-  childProcess.on("spawn", () => {
-    console.log(chalk.green(`${processName} started.`));
-  });
-  childProcess.on("error", (error) => {
-    console.log(chalk.red(error));
-  });
-  childProcess.on("close", (code, signal) => {
-    if (code !== 0) {
-      console.log(chalk.red(code, signal));
-    }
-  });
-  childProcess.on("message", (data) => {
-    console.log(chalk.green(data));
-  });
-  childProcess.on("exit", (code, signal) => {
-    if (code !== 0) {
-      console.log(chalk.red(code, signal));
-    }
-  });
-  childProcess.on("disconnect", () => {
-    console.log(chalk.green(`${processName} disconnected.`));
+async function processHandler(
+  childProcess: ReturnType<typeof spawn>,
+  processName: string,
+): Promise<void> {
+  return new Promise((resolve, reject) => {
+    childProcess.on("spawn", () => {
+      console.log(chalk.green(`${processName} started.`));
+    });
+    childProcess.on("error", (error) => {
+      console.log(chalk.red(error));
+      reject();
+    });
+    childProcess.on("close", (code, signal) => {
+      if (code !== 0) {
+        reject();
+        console.log(chalk.red(code, signal));
+      }
+      resolve();
+    });
+    childProcess.on("message", (data) => {
+      console.log(chalk.green(data));
+      resolve();
+    });
+    childProcess.on("exit", (code, signal) => {
+      if (code !== 0) {
+        console.log(chalk.red(code, signal));
+        reject();
+      }
+      resolve();
+    });
+    childProcess.on("disconnect", () => {
+      console.log(chalk.green(`${processName} disconnected.`));
+      resolve();
+    });
   });
 }
 
+async function updatePackageJSON(path: string): Promise<void> {
+  const packageJSONPath = join(path, "package.json");
+  const { data } = await axios.get(
+    "https://raw.githubusercontent.com/nik-1207/node-js/master/package.json",
+  );
+  const serializedPackageJSON = await readFile(packageJSONPath, "utf-8");
+  const parsedPackageJSON = JSON.parse(serializedPackageJSON);
+  await writeFile(
+    packageJSONPath,
+    JSON.stringify({
+      ...parsedPackageJSON,
+      ...data["scripts"],
+      ...data["dependencies"],
+      ...data["devDependencies"],
+    }),
+  );
+}
+
 export async function initialize({ projectTitle, packageManager }: ProjectInfo): Promise<void> {
-  const path = join(process.cwd(), projectTitle);
-  await createDir(path);
+  const rootPath = join(process.cwd(), projectTitle);
+  const srcPath = join(rootPath, "src");
+
+  await createDir(rootPath);
+  await createDir(srcPath);
 
   if (packageManager === "pnpm") {
     throw new UnsupportedError(`${packageManager} is not supported.`);
   }
 
   const childProcess = spawn(packageManager, ["init", "-y"], {
-    cwd: path,
+    cwd: rootPath,
   });
 
-  processHandler(childProcess, "initialize 'package.json'");
+  await processHandler(childProcess, "initialize 'package.json'");
+
+  await updatePackageJSON(rootPath);
 }
