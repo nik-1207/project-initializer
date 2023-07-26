@@ -2,6 +2,7 @@ import { program } from "commander";
 import inquirer from "inquirer";
 import { Language, PackageManager, ProjectInfo } from "./types";
 import { initialize } from "./utils";
+import chalk from "chalk";
 
 program
   .name("project initializer")
@@ -31,7 +32,12 @@ program.command("init").action(async () => {
       name: "projectType",
     },
   ]);
-  await initialize(projectInfo);
+  try {
+    await initialize(projectInfo);
+  } catch (error) {
+    const { message } = error as NodeJS.ErrnoException;
+    console.log(chalk.red(message));
+  }
 });
 
 program.parse();

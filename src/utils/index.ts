@@ -3,6 +3,7 @@ import { join } from "path";
 import { ProjectInfo } from "../types";
 import { spawn } from "child_process";
 import chalk from "chalk";
+import { UnsupportedError } from "../errors";
 
 async function createDir(path: string): Promise<void> {
   await mkdir(path);
@@ -36,6 +37,10 @@ function processHandler(childProcess: ReturnType<typeof spawn>, processName: str
 export async function initialize({ projectTitle, packageManager }: ProjectInfo): Promise<void> {
   const path = join(process.cwd(), projectTitle);
   await createDir(path);
+
+  if (packageManager === "pnpm") {
+    throw new UnsupportedError(`${packageManager} is not supported.`);
+  }
 
   const childProcess = spawn(packageManager, ["init", "-y"], {
     cwd: path,
