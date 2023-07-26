@@ -65,7 +65,11 @@ async function updatePackageJSON(path: string): Promise<void> {
   );
 }
 
-export async function initialize({ projectTitle, packageManager }: ProjectInfo): Promise<void> {
+export async function initialize({
+  projectTitle,
+  packageManager,
+  projectType,
+}: ProjectInfo): Promise<void> {
   const rootPath = join(process.cwd(), projectTitle);
   const srcPath = join(rootPath, "src");
 
@@ -74,6 +78,9 @@ export async function initialize({ projectTitle, packageManager }: ProjectInfo):
 
   if (packageManager === "pnpm") {
     throw new UnsupportedError(`${packageManager} is not supported.`);
+  }
+  if (projectType === "javascript") {
+    throw new UnsupportedError(`${projectType} is not supported.`);
   }
 
   const childProcess = spawn(packageManager, ["init", "-y"], {
