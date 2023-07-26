@@ -1,5 +1,5 @@
 {
-  "name": "project-initializer",
+  "name": "@nik-1207/project-initializer",
   "version": "1.0.0",
   "description": "## 1. Introduction",
   "keywords": [],
@@ -27,7 +27,8 @@
     "axios": "^1.4.0",
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
-    "inquirer": "^8.2.5"
+    "inquirer": "^8.2.5",
+    "user": "^0.0.0"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
