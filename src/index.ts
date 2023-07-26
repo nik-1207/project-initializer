@@ -24,7 +24,7 @@ program.command("init").action(async () => {
       name: "packageManager",
     },
     {
-      message: "typescript",
+      message: "projectType",
       type: "list",
       choices: Object.values(Language),
       default: Language.javascript,

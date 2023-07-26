@@ -1,17 +1,23 @@
 {
   "name": "project-initializer",
   "version": "1.0.0",
-  "repository": "https://github.com/nik-1207/project-initializer.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nik-1207/project-initializer.git"
+  },
   "license": "MIT",
   "author": "nik-1207 <nmknikhilkashyap@gmail.com>",
   "main": "build/index.js",
+  "bin": {
+    "init": "build/index.js"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json -w",
     "format": "eslint --config .eslintrc && prettier src/* -w && sort-package-json",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^4.1.2",
     "commander": "^11.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
@@ -26,5 +32,11 @@
     "prettier": "^3.0.0",
     "sort-package-json": "^2.5.1",
     "typescript": "^5.1.6"
-  }
+  },
+  "description": "## 1. Introduction",
+  "bugs": {
+    "url": "https://github.com/nik-1207/project-initializer/issues"
+  },
+  "homepage": "https://github.com/nik-1207/project-initializer#readme",
+  "keywords": []
 }
