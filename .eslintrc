@@ -24,6 +24,7 @@
     "quotes": ["error", "double"]
   },
   "settings": {
+    "import/newline-after-import": "error",
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
