@@ -20,6 +20,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json -w",
     "format": "eslint --config .eslintrc && prettier src/* -w && sort-package-json",
+    "prepare": "husky install",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "eslint": "^8.45.0",
+    "husky": "^8.0.3",
     "prettier": "^3.0.0",
     "sort-package-json": "^2.5.1",
     "typescript": "^5.1.6"
