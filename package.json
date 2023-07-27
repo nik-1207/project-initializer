@@ -2,7 +2,13 @@
   "name": "@nik-1207/project-initializer",
   "version": "1.0.0",
   "description": "Node.js command-line tool for automating project setup and initialization.",
-  "keywords": ["cli", "project", "initializer", "node.js", "automation"],
+  "keywords": [
+    "cli",
+    "project",
+    "initializer",
+    "node.js",
+    "automation"
+  ],
   "homepage": "https://github.com/nik-1207/project-initializer#readme",
   "bugs": {
     "url": "https://github.com/nik-1207/project-initializer/issues"
