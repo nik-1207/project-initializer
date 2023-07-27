@@ -24,7 +24,7 @@
     "start": "build/index.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.cjs.json -w",
+    "build": "tsc -p tsconfig.cjs.json",
     "format": "eslint --config .eslintrc && prettier src/* -w && sort-package-json",
     "prepare": "husky install",
     "start": "ts-node src/index.ts"
