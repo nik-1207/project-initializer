@@ -1,57 +1,69 @@
-# Software Requirements Specification (SRS) - CLI Project Initializer for Node.js Projects
+# CLI Project Initializer for Node.js Projects
 
-## 1. Introduction
+The CLI Project Initializer is a Node.js command-line tool designed to streamline the process of creating new Node.js projects by automating the project setup. With this tool, you can quickly create new projects with just a few simple commands.
 
-The CLI Project Initializer is a Node.js command-line tool designed to streamline the process of creating new Node.js projects by automating the project setup. This tool will prompt the user for necessary project details and generate a basic project structure with the specified configurations.
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Scope](#scope)
+3. [Functional Requirements](#functional-requirements)
+4. [Non-Functional Requirements](#non-functional-requirements)
+5. [Predefined Project Templates](#predefined-project-templates)
+6. [Constraints](#constraints)
+7. [Future Enhancements](#future-enhancements)
+8. [Installation](#installation)
+9. [Usage](#usage)
+10. [Contributing](#contributing)
+11. [License](#license)
 
-## 2. Scope
+## Introduction
+
+The CLI Project Initializer is a user-friendly Node.js command-line tool that simplifies the process of creating new Node.js projects. It prompts you for necessary project details and generates a basic project structure with the specified configurations.
+
+## Scope
 
 The CLI Project Initializer aims to:
-
-- Provide a simple and user-friendly interface for initializing new Node.js projects.
-- Allow users to customize project details, such as project name, description, author name, and project template.
+- Provide a simple and intuitive interface for initializing new Node.js projects.
+- Allow users to customize project details such as project name, description, author name, and project template.
 - Generate a project structure based on the selected template and install necessary dependencies.
 
-## 3. Functional Requirements
+## Functional Requirements
 
-### 3.1. User Interaction
+### User Interaction
 
-The CLI tool shall interact with the user through the command-line interface to gather the following information:
-
+The CLI tool interacts with the user through the command-line interface to gather the following information:
 - Project Name: A string representing the name of the new project.
 - Project Description: A brief description of the project.
 - Author Name: The name of the project author or creator.
 - Project Template: The choice of project template from predefined templates.
 
-### 3.2. Project Generation
+### Project Generation
 
-After receiving the user's inputs, the CLI tool shall:
+After receiving the user's inputs, the CLI tool:
+- Creates a new project directory with the provided project name.
+- Copies the selected project template files and folders into the new project directory.
+- Replaces placeholders in the template files (e.g., __PROJECT_NAME__, __DESCRIPTION__, __AUTHOR_NAME__) with the user-provided values.
 
-- Create a new project directory with the provided project name.
-- Copy the selected project template files and folders into the new project directory.
-- Replace placeholders in the template files (e.g., __PROJECT_NAME__, __DESCRIPTION__, __AUTHOR_NAME__) with the user-provided values.
+### Dependency Installation
 
-### 3.3. Dependency Installation
+The CLI tool automatically installs project-specific dependencies based on the selected template, if any.
 
-The CLI tool shall automatically install project-specific dependencies based on the selected template, if any.
+## Non-Functional Requirements
 
-## 4. Non-Functional Requirements
+### Usability
 
-### 4.1. Usability
+The CLI tool provides clear instructions and prompts to guide users through the project initialization process. It handles invalid inputs gracefully and provides helpful error messages when needed.
 
-The CLI tool shall provide clear instructions and prompts to guide users through the project initialization process. It should handle invalid inputs gracefully and provide helpful error messages when needed.
+### Performance
 
-### 4.2. Performance
+The project initialization process is designed to be efficient and completed in a reasonable time, even for larger templates.
 
-The project initialization process should be efficient and completed in a reasonable time, even for larger templates.
+### Security
 
-### 4.3. Security
+The CLI tool validates and sanitizes user inputs to prevent any potential security vulnerabilities.
 
-The CLI tool shall validate and sanitize user inputs to prevent any potential security vulnerabilities.
+## Predefined Project Templates
 
-## 5. Predefined Project Templates
-
-The CLI tool shall support the following predefined project templates:
+The CLI tool supports the following predefined project templates:
 
 1. **Basic Node.js Project Template:**
    - Minimal project structure with a simple `index.js` file.
@@ -61,19 +73,40 @@ The CLI tool shall support the following predefined project templates:
    - Project structure for an Express.js web application.
    - Express.js and other related dependencies.
 
-3. **Typescript Project Template:**
+3. **TypeScript Project Template:**
    - Project structure for a Node.js project with TypeScript support.
    - TypeScript and other related dependencies.
 
-## 6. Constraints
+## Constraints
 
-- The CLI tool will be developed using Node.js and will require Node.js and npm to be installed on the user's machine.
+- The CLI tool is developed using Node.js and requires Node.js and npm to be installed on the user's machine.
 
-## 7. Future Enhancements
+## Future Enhancements
 
 - Add support for more project templates and configurations.
 - Implement version control integration to initialize projects directly from Git repositories.
 
-## 8. Conclusion
+## Installation
 
-The CLI Project Initializer is intended to simplify the process of creating new Node.js projects by automating the project setup. By providing a straightforward command-line interface, users can quickly initialize new projects with minimal effort and avoid repetitive manual tasks.
+To use the CLI Project Initializer, you need to have Node.js and npm installed on your machine. You can install the tool globally using npm:
+
+```
+npm install -g @nik-1207/project-initializer
+```
+
+## Usage
+
+To initialize a new Node.js project, run the following command:
+```
+project-init
+```
+
+The CLI tool will prompt you for project details and create the project structure based on your inputs.
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on [GitHub](https://github.com/nik-1207/project-initializer/issues).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

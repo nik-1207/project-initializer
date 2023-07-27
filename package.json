@@ -21,7 +21,7 @@
   "author": "nik-1207 <nmknikhilkashyap@gmail.com>",
   "main": "build/index.js",
   "bin": {
-    "start": "build/index.js"
+    "node-project": "build/index.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json",
