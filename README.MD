@@ -23,31 +23,17 @@ The CLI Project Initializer is a user-friendly Node.js command-line tool that si
 
 The CLI Project Initializer aims to:
 - Provide a simple and intuitive interface for initializing new Node.js projects.
-- Allow users to customize project details such as project name, description, author name, and project template.
-- Generate a project structure based on the selected template and install necessary dependencies.
-
-## Functional Requirements
 
 ### User Interaction
 
 The CLI tool interacts with the user through the command-line interface to gather the following information:
-- Project Name: A string representing the name of the new project.
-- Project Description: A brief description of the project.
-- Author Name: The name of the project author or creator.
-- Project Template: The choice of project template from predefined templates.
-
+- Project Title: A string representing the name of the new project.
+- Package Manager: A brief description of the project.
+- Project Type: Type of project (js or ts).
 ### Project Generation
 
 After receiving the user's inputs, the CLI tool:
-- Creates a new project directory with the provided project name.
-- Copies the selected project template files and folders into the new project directory.
-- Replaces placeholders in the template files (e.g., __PROJECT_NAME__, __DESCRIPTION__, __AUTHOR_NAME__) with the user-provided values.
-
-### Dependency Installation
-
-The CLI tool automatically installs project-specific dependencies based on the selected template, if any.
-
-## Non-Functional Requirements
+- Creates a new project directory with the provided project title.
 
 ### Usability
 
@@ -57,33 +43,12 @@ The CLI tool provides clear instructions and prompts to guide users through the 
 
 The project initialization process is designed to be efficient and completed in a reasonable time, even for larger templates.
 
-### Security
-
-The CLI tool validates and sanitizes user inputs to prevent any potential security vulnerabilities.
-
-## Predefined Project Templates
-
-The CLI tool supports the following predefined project templates:
-
-1. **Basic Node.js Project Template:**
-   - Minimal project structure with a simple `index.js` file.
-   - No external dependencies.
-
-2. **Express.js Project Template:**
-   - Project structure for an Express.js web application.
-   - Express.js and other related dependencies.
-
-3. **TypeScript Project Template:**
-   - Project structure for a Node.js project with TypeScript support.
-   - TypeScript and other related dependencies.
-
 ## Constraints
 
 - The CLI tool is developed using Node.js and requires Node.js and npm to be installed on the user's machine.
 
 ## Future Enhancements
 
-- Add support for more project templates and configurations.
 - Implement version control integration to initialize projects directly from Git repositories.
 
 ## Installation
@@ -98,7 +63,7 @@ npm install -g @nik-1207/project-initializer
 
 To initialize a new Node.js project, run the following command:
 ```
-project-init
+node-project init
 ```
 
 The CLI tool will prompt you for project details and create the project structure based on your inputs.
