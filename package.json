@@ -1,8 +1,8 @@
 {
   "name": "@nik-1207/project-initializer",
   "version": "1.0.0",
-  "description": "## 1. Introduction",
-  "keywords": [],
+  "description": "Node.js command-line tool for automating project setup and initialization.",
+  "keywords": ["cli", "project", "initializer", "node.js", "automation"],
   "homepage": "https://github.com/nik-1207/project-initializer#readme",
   "bugs": {
     "url": "https://github.com/nik-1207/project-initializer/issues"
@@ -15,7 +15,7 @@
   "author": "nik-1207 <nmknikhilkashyap@gmail.com>",
   "main": "build/index.js",
   "bin": {
-    "init": "build/index.js"
+    "start": "build/index.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json -w",
