@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
@@ -21,7 +21,7 @@
     "declaration": true,
     "composite": true,
     "outDir": "build",
-    "declarationDir": "build/types" 
+    "declarationDir": "build/types" ,
   },
   "include": ["src"],
   "exclude": ["node_modules","build"]
