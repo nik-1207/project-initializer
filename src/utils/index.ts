@@ -56,12 +56,16 @@ async function updatePackageJSON(path: string): Promise<void> {
   const parsedPackageJSON = JSON.parse(serializedPackageJSON);
   await writeFile(
     packageJSONPath,
-    JSON.stringify({
-      ...parsedPackageJSON,
-      ...data["scripts"],
-      ...data["dependencies"],
-      ...data["devDependencies"],
-    }),
+    JSON.stringify(
+      {
+        ...parsedPackageJSON,
+        ...data["scripts"],
+        ...data["dependencies"],
+        ...data["devDependencies"],
+      },
+      undefined,
+      2,
+    ),
   );
 }
 
