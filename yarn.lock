@@ -126,6 +126,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/workerpool@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@types/workerpool/-/workerpool-6.4.0.tgz#c79292915dd08350d10e78e74687b6f401f270b8"
+  integrity sha512-SIF2/169pDsLKeM8GQGHkOFifGalDbZgiBSaLUnnlVSRsAOenkAvQ6h4uhV2W+PZZczS+8LQxACwNkSykdT91A==
+  dependencies:
+    "@types/node" "*"
+
 "@typescript-eslint/eslint-plugin@^6.1.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.2.0.tgz#57047c400be0632d4797ac081af8d399db3ebc3b"

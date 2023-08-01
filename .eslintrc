@@ -36,14 +36,15 @@
     "linebreak-style": ["error", "unix"],
     "comma-dangle": ["error", "always-multiline"],
     "semi": "error",
-    "indent": ["error", 2],
     "prettier/prettier": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "default-case": "error",
+    "no-fallthrough": "error",
+    "@typescript-eslint/typedef": "error"
   },
   "settings": {
-    "import/newline-after-import": "error",
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]

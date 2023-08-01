@@ -10,3 +10,5 @@ export const RemoteFiles = {
   "tsconfig.cjs.json": `${BaseURL}/tsconfig.cjs.json`,
   "tsconfig.esm.json": `${BaseURL}/tsconfig.esm.json`,
 } as const;
+
+export type RemoteFile = keyof typeof RemoteFiles;
