@@ -77,9 +77,6 @@ export async function initialize({
   const rootPath = join(process.cwd(), projectTitle);
   const srcPath = join(rootPath, "src");
 
-  await createDir(rootPath);
-  await createDir(srcPath);
-
   if (packageManager === "pnpm") {
     throw new UnsupportedError(`${packageManager} is not supported.`);
   }
@@ -90,6 +87,9 @@ export async function initialize({
   const childProcess = spawn(packageManager, ["init", "-y"], {
     cwd: rootPath,
   });
+
+  await createDir(rootPath);
+  await createDir(srcPath);
 
   await processHandler(childProcess, "initialize 'package.json'");
 
