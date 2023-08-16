@@ -3,7 +3,7 @@ name: Publish npm Package
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   publish:
@@ -30,5 +30,3 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > .npmrc
           npm publish
-
-          
