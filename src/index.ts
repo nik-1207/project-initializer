@@ -9,7 +9,7 @@ import chalk from "chalk";
 program
   .name("project initializer")
   .description("CLI tool to initialize node js project.")
-  .version("0.0.0");
+  .version("1.0.1-beta.2");
 
 program.command("init").action(async () => {
   const projectInfo = await inquirer.prompt<ProjectInfo>([
