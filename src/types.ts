@@ -9,11 +9,11 @@ export const Language = {
   javascript: "javascript",
 };
 
-export type packageManager = keyof typeof PackageManager;
+export type PackageManager = keyof typeof PackageManager;
 export type language = keyof typeof Language;
 
 export interface ProjectInfo {
   projectTitle: string | "my-app";
-  packageManager: packageManager;
+  packageManager: PackageManager;
   projectType: language;
 }
