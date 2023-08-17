@@ -4,6 +4,7 @@ import { PackageManager } from "../types";
 import { spawn } from "child_process";
 import chalk from "chalk";
 import axios from "axios";
+import { RemoteFiles } from "./data";
 
 async function processHandler(packageManager: PackageManager, rootPath: string): Promise<void> {
   const processName = "initialize 'package.json'";
@@ -45,9 +46,7 @@ async function processHandler(packageManager: PackageManager, rootPath: string):
 
 async function updatePackageJSON(path: string): Promise<void> {
   const packageJSONPath = join(path, "package.json");
-  const { data } = await axios.get(
-    "https://raw.githubusercontent.com/nik-1207/node-js/master/package.json",
-  );
+  const { data } = await axios.get(RemoteFiles["package.json"]);
   const serializedPackageJSON = await readFile(packageJSONPath, "utf-8");
   const parsedPackageJSON = JSON.parse(serializedPackageJSON);
   await writeFile(

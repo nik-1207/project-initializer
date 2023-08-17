@@ -2,6 +2,9 @@ import { ProjectInfo } from "../types";
 import { UnsupportedError } from "../errors";
 import { createSkeleton } from "./skeleton";
 import { handlePackageJSON } from "./packagejson";
+import { addEslint } from "./eslint";
+import { addPrettier } from "./prettier";
+import { addTsConfig } from "./tsconfig";
 
 export async function initialize({
   projectTitle,
@@ -17,4 +20,7 @@ export async function initialize({
 
   const rootPath = await createSkeleton(projectTitle);
   await handlePackageJSON(packageManager, rootPath);
+  await addEslint(rootPath);
+  await addPrettier(rootPath);
+  await addTsConfig(rootPath);
 }
