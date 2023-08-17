@@ -1,6 +1,6 @@
-const BaseURL = "https://raw.githubusercontent.com/nik-1207/node-js/master";
+const BaseURL = "https://raw.githubusercontent.com/nik-1207/project-initializer/master";
 export const RemoteFiles = {
-  "package.json": `${BaseURL}/package.json`,
+  "package.json": `${BaseURL}/package-json.json`,
   ".prettierignore": `${BaseURL}/.prettierignore`,
   ".prettierrc": `${BaseURL}/.prettierrc`,
   ".eslintignore": `${BaseURL}/.eslintignore`,
