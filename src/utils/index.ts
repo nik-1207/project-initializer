@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import { UnsupportedError } from "../errors";
 import { addEslint } from "./eslint";
 import { handlePackageJSON } from "./packagejson";
@@ -19,8 +20,12 @@ export async function initialize({
   }
 
   const rootPath = await createSkeleton(projectTitle);
+  console.log(chalk.green(`Creating project directory ${projectTitle} at ${rootPath}.`));
   await handlePackageJSON(packageManager, rootPath);
+  console.log(chalk.green(`Adding eslint configuration.`));
   await addEslint(rootPath);
+  console.log(chalk.green(`Adding prettier configuration.`));
   await addPrettier(rootPath);
+  console.log(chalk.green(`Adding tsconfig configuration.`));
   await addTsConfig(rootPath);
 }

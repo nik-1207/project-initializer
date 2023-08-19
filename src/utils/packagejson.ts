@@ -7,13 +7,13 @@ import { RemoteFiles } from "./data";
 import type { PackageManager } from "../types";
 
 async function processHandler(packageManager: PackageManager, rootPath: string): Promise<void> {
-  const processName = "initialize 'package.json'";
+  const processName = "initializing 'package.json'";
   return new Promise((resolve, reject) => {
     const childProcess = spawn(packageManager, ["init", "-y"], {
       cwd: rootPath,
     });
     childProcess.on("spawn", () => {
-      console.log(chalk.green(`${processName} started.`));
+      console.log(chalk.green(`${processName}.`));
     });
     childProcess.on("error", (error) => {
       console.log(chalk.red(error));

@@ -6,7 +6,7 @@ import { RemoteFiles } from "./data";
 async function addEslintConfig(path: string): Promise<void> {
   const eslintConfigPath = join(path, ".eslintrc");
   const { data } = await axios.get(RemoteFiles[".eslintrc"]);
-  await writeFile(eslintConfigPath, JSON.stringify(data, undefined, 2));
+  await writeFile(eslintConfigPath, data); // Not specifying Json formatting ad the text coming is preformatted.
 }
 
 // async function addEslintIgnore(path: string): Promise<void> {
