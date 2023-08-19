@@ -7,7 +7,7 @@
     "main": "index.js",
     "scripts": {
       "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
-      "format": "eslint --config .eslintrc && prettier src/* -w && sort-package-json",
+      "format": "eslint src/** --fix --config .eslintrc && prettier src/** -w && sort-package-json",
       "prepare": "husky install",
       "start": "ts-node src/index.ts"
     },
