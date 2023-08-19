@@ -1,6 +1,6 @@
 {
   "name": "@nik-1207/project-initializer",
-  "version": "1.0.3",
+  "version": "1.1.0.",
   "description": "Node.js command-line tool for automating project setup and initialization.",
   "keywords": [
     "CLI Project Initializer",

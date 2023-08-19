@@ -10,7 +10,7 @@ import type { ProjectInfo } from "./types";
 program
   .name("project initializer")
   .description("CLI tool to initialize node js project.")
-  .version("1.0.3");
+  .version("1.1.0");
 
 program.command("init").action(async () => {
   const projectInfo = await inquirer.prompt<ProjectInfo>([
