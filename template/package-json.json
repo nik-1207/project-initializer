@@ -21,6 +21,9 @@
       "husky": "^8.0.3",
       "prettier": "^3.0.0",
       "sort-package-json": "^2.5.1",
-      "typescript": "^5.1.6"
+      "typescript": "^5.1.6",
+      "eslint-config-airbnb-base": "^15.0.0",
+      "eslint-config-airbnb-typescript": "^17.1.0",
+      "eslint-import-resolver-typescript": "^3.6.0"
     }
   }
