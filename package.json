@@ -1,13 +1,27 @@
 {
   "name": "@nik-1207/project-initializer",
-  "version": "1.0.3-beta.1",
+  "version": "1.0.3-beta.2",
   "description": "Node.js command-line tool for automating project setup and initialization.",
   "keywords": [
-    "cli",
-    "project",
-    "initializer",
-    "node.js",
-    "automation"
+    "CLI Project Initializer",
+    "Node.js",
+    "Projects",
+    "Command-line Tool",
+    "Automation",
+    "Project Setup",
+    "New Projects",
+    "Project Templates",
+    "User Interaction",
+    "Project Generation",
+    "Usability",
+    "Performance",
+    "Constraints",
+    "npm",
+    "Project Structure",
+    "Efficiency",
+    "Robust ESLint Configuration",
+    "Code Quality",
+    "Consistency"
   ],
   "homepage": "https://github.com/nik-1207/project-initializer#readme",
   "bugs": {
