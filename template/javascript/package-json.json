@@ -5,7 +5,6 @@
   "author": "nik-1207 <nmknikhilkashyap@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
     "format": "eslint src/** --fix --config .eslintrc && prettier src/** -w && sort-package-json",
     "prepare": "husky install",
     "start": "node src/index.js"
