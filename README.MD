@@ -5,15 +5,14 @@ The CLI Project Initializer is a Node.js command-line tool designed to streamlin
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Scope](#scope)
-3. [Functional Requirements](#functional-requirements)
-4. [Non-Functional Requirements](#non-functional-requirements)
-5. [Predefined Project Templates](#predefined-project-templates)
-6. [Constraints](#constraints)
-7. [Future Enhancements](#future-enhancements)
-8. [Installation](#installation)
-9. [Usage](#usage)
-10. [Contributing](#contributing)
-11. [License](#license)
+3. [Predefined Project Templates](#predefined-project-templates)
+4. [Constraints](#constraints)
+5. [Future Enhancements](#future-enhancements)
+6. [Installation](#installation)
+7. [Usage](#usage)
+8. [Contributing](#contributing)
+9. [License](#license)
+10. [Version Change Log](#version-change-log)
 
 ## Introduction
 
@@ -55,20 +54,23 @@ The project initialization process is designed to be efficient and completed in 
 
 To use the CLI Project Initializer, you need to have Node.js and npm installed on your machine. You can install the tool globally using npm:
 
-```
+```shell
 npm install -g @nik-1207/project-initializer
 ```
 
-## Usage
-
+### Usage
 To initialize a new Node.js project, run the following command:
-```
+```shell
 node-project init
 ```
-
 The CLI tool will prompt you for project details and create the project structure based on your inputs.
 
-## Contributing
+### Version Change Log
+#### v1.1.0
+
+- Updated ESLint configuration to be more robust, enhancing code quality and consistency.
+
+### Contributing
 
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on [GitHub](https://github.com/nik-1207/project-initializer/issues).
 
