@@ -1,10 +1,10 @@
+import { spawn } from "child_process";
 import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
-import { PackageManager } from "../types";
-import { spawn } from "child_process";
-import chalk from "chalk";
 import axios from "axios";
+import chalk from "chalk";
 import { RemoteFiles } from "./data";
+import type { PackageManager } from "../types";
 
 async function processHandler(packageManager: PackageManager, rootPath: string): Promise<void> {
   const processName = "initialize 'package.json'";
@@ -54,9 +54,9 @@ async function updatePackageJSON(path: string): Promise<void> {
     JSON.stringify(
       {
         ...parsedPackageJSON,
-        scripts: data["scripts"],
-        dependencies: data["dependencies"],
-        devDependencies: data["devDependencies"],
+        scripts: data.scripts,
+        dependencies: data.dependencies,
+        devDependencies: data.devDependencies,
       },
       undefined,
       2,

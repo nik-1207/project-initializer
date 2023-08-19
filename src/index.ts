@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
+import chalk from "chalk";
 import { program } from "commander";
 import inquirer from "inquirer";
-import { Language, PackageManager, ProjectInfo } from "./types";
+import { Language, PackageManager } from "./types";
 import { initialize } from "./utils";
-import chalk from "chalk";
+import type { ProjectInfo } from "./types";
 
 program
   .name("project initializer")

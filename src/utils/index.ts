@@ -1,10 +1,10 @@
-import { ProjectInfo } from "../types";
 import { UnsupportedError } from "../errors";
-import { createSkeleton } from "./skeleton";
-import { handlePackageJSON } from "./packagejson";
 import { addEslint } from "./eslint";
+import { handlePackageJSON } from "./packagejson";
 import { addPrettier } from "./prettier";
+import { createSkeleton } from "./skeleton";
 import { addTsConfig } from "./tsconfig";
+import type { ProjectInfo } from "../types";
 
 export async function initialize({
   projectTitle,

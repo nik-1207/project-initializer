@@ -9,11 +9,13 @@ export const Language = {
   javascript: "javascript",
 };
 
+// eslint-disable-next-line  @typescript-eslint/no-redeclare
 export type PackageManager = keyof typeof PackageManager;
-export type language = keyof typeof Language;
+// eslint-disable-next-line  @typescript-eslint/no-redeclare
+export type Language = keyof typeof Language;
 
 export interface ProjectInfo {
   projectTitle: string | "my-app";
   packageManager: PackageManager;
-  projectType: language;
+  projectType: Language;
 }

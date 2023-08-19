@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.cjs.json",
-    "format": "eslint --config .eslintrc && prettier src/* -w && sort-package-json",
+    "format": "eslint src/** --fix --config .eslintrc && prettier src/** -w && sort-package-json",
     "prepare": "husky install",
     "start": "ts-node src/index.ts"
   },
@@ -42,7 +42,10 @@
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "eslint": "^8.45.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
