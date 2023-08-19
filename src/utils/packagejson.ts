@@ -6,6 +6,12 @@ import chalk from "chalk";
 import { getRemoteFileURLs } from "./data";
 import type { Language, PackageManager } from "../types";
 
+interface HandlePackageJSONParams {
+  packageManager: PackageManager;
+  rootPath: string;
+  projectType: Language;
+  useTsNode: boolean;
+}
 async function processHandler(packageManager: PackageManager, rootPath: string): Promise<void> {
   const processName = "initializing 'package.json'";
   return new Promise((resolve, reject) => {
@@ -44,8 +50,12 @@ async function processHandler(packageManager: PackageManager, rootPath: string):
   });
 }
 
-async function updatePackageJSON(path: string, projectType: Language): Promise<void> {
-  const packageJSONPath = join(path, "package.json");
+async function updatePackageJSON({
+  projectType,
+  rootPath,
+  useTsNode,
+}: Omit<HandlePackageJSONParams, "packageManager">): Promise<void> {
+  const packageJSONPath = join(rootPath, "package.json");
   const remoteFiles = getRemoteFileURLs(projectType);
   const { data } = await axios.get(remoteFiles["package.json"]);
   const serializedPackageJSON = await readFile(packageJSONPath, "utf-8");
@@ -55,7 +65,13 @@ async function updatePackageJSON(path: string, projectType: Language): Promise<v
     JSON.stringify(
       {
         ...parsedPackageJSON,
-        scripts: data.scripts,
+        scripts:
+          useTsNode === false && projectType === "typescript"
+            ? {
+                ...data.scripts,
+                start: "node build/cjs/index.js",
+              }
+            : data.scripts,
         dependencies: data.dependencies,
         devDependencies: data.devDependencies,
       },
@@ -65,11 +81,12 @@ async function updatePackageJSON(path: string, projectType: Language): Promise<v
   );
 }
 
-export async function handlePackageJSON(
-  packageManager: PackageManager,
-  rootPath: string,
-  projectType: Language,
-): Promise<void> {
+export async function handlePackageJSON({
+  packageManager,
+  projectType,
+  rootPath,
+  useTsNode,
+}: HandlePackageJSONParams): Promise<void> {
   await processHandler(packageManager, rootPath);
-  await updatePackageJSON(rootPath, projectType);
+  await updatePackageJSON({ rootPath, projectType, useTsNode });
 }

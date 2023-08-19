@@ -31,10 +31,18 @@ program.command("init").action(async () => {
       message: "projectType",
       type: "list",
       choices: Object.values(Language),
-      default: Language.javascript,
+      default: Language.typescript,
       name: "projectType",
     },
+    {
+      message: "Do you wish to use ts-node",
+      type: "confirm",
+      default: false,
+      name: "useTsNode",
+      when: ({ projectType }) => projectType === "typescript",
+    },
   ]);
+
   try {
     await initialize(projectInfo);
   } catch (error) {

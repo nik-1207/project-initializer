@@ -11,6 +11,7 @@ export async function initialize({
   projectTitle,
   packageManager,
   projectType,
+  useTsNode,
 }: ProjectInfo): Promise<void> {
   if (packageManager === "pnpm") {
     throw new UnsupportedError(`${packageManager} is not supported.`);
@@ -18,7 +19,7 @@ export async function initialize({
 
   const rootPath = await createSkeleton(projectTitle);
   console.log(chalk.green(`Creating project directory ${projectTitle} at ${rootPath}.`));
-  await handlePackageJSON(packageManager, rootPath, projectType);
+  await handlePackageJSON({ packageManager, projectType, rootPath, useTsNode });
   console.log(chalk.green(`Adding eslint configuration.`));
   await addEslint(rootPath, projectType);
   console.log(chalk.green(`Adding prettier configuration.`));

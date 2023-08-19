@@ -18,4 +18,5 @@ export interface ProjectInfo {
   projectTitle: string | "my-app";
   packageManager: PackageManager;
   projectType: Language;
+  useTsNode: boolean;
 }
