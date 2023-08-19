@@ -66,9 +66,20 @@ node-project init
 The CLI tool will prompt you for project details and create the project structure based on your inputs.
 
 ### Version Change Log
-#### v1.1.0
+#### v2.0.0 New Features and Enhancements:
+- TS Node (TypeScript) Projects: Create TypeScript projects with the power of ts-node, making development seamless and efficient.
 
-- Updated ESLint configuration to be more robust, enhancing code quality and consistency.
+- Node (TypeScript) Projects: Set up Node.js projects with TypeScript, combining flexibility and type safety.
+
+- JavaScript Projects: Whether it's classic or modern JavaScript, our tool now supports hassle-free project creation.
+
+- Auto Dependency Installation: Say goodbye to manual installations. Our tool now handles dependency setup automatically, getting you up and running in no time.
+
+- Improved Configs: We've overhauled our template files to provide you with even more robust ESLint and TypeScript lint configurations, ensuring your code is top-notch from the start.
+
+- Fix failing scripts.
+
+
 
 ### Contributing
 
