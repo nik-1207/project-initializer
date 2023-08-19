@@ -15,17 +15,16 @@ export async function initialize({
   if (packageManager === "pnpm") {
     throw new UnsupportedError(`${packageManager} is not supported.`);
   }
-  if (projectType === "javascript") {
-    throw new UnsupportedError(`${projectType} is not supported.`);
-  }
 
   const rootPath = await createSkeleton(projectTitle);
   console.log(chalk.green(`Creating project directory ${projectTitle} at ${rootPath}.`));
-  await handlePackageJSON(packageManager, rootPath);
+  await handlePackageJSON(packageManager, rootPath, projectType);
   console.log(chalk.green(`Adding eslint configuration.`));
-  await addEslint(rootPath);
+  await addEslint(rootPath, projectType);
   console.log(chalk.green(`Adding prettier configuration.`));
-  await addPrettier(rootPath);
-  console.log(chalk.green(`Adding tsconfig configuration.`));
-  await addTsConfig(rootPath);
+  await addPrettier(rootPath, projectType);
+  if (projectType === "typescript") {
+    console.log(chalk.green(`Adding tsconfig configuration.`));
+    await addTsConfig(rootPath, projectType);
+  }
 }

@@ -1,21 +1,16 @@
 import { writeFile } from "fs/promises";
 import { join } from "path";
 import axios from "axios";
-import { RemoteFiles } from "./data";
+import { getRemoteFileURLs } from "./data";
+import type { Language } from "../types";
 
-async function addEslintConfig(path: string): Promise<void> {
+async function addEslintConfig(path: string, projectType: Language): Promise<void> {
   const eslintConfigPath = join(path, ".eslintrc");
-  const { data } = await axios.get(RemoteFiles[".eslintrc"]);
+  const remoteFiles = getRemoteFileURLs(projectType);
+  const { data } = await axios.get(remoteFiles[".eslintrc"]);
   await writeFile(eslintConfigPath, data); // Not specifying Json formatting ad the text coming is preformatted.
 }
 
-// async function addEslintIgnore(path: string): Promise<void> {
-//   const eslintIgnorePath = join(path, ".eslintignore");
-//   const { data } = await axios.get(RemoteFiles[".eslintignore"]);
-//   await writeFile(eslintIgnorePath, data);
-// }
-
-export async function addEslint(path: string): Promise<void> {
-  await addEslintConfig(path);
-  // await addEslintIgnore(path);
+export async function addEslint(path: string, projectType: Language): Promise<void> {
+  await addEslintConfig(path, projectType);
 }

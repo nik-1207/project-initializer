@@ -3,8 +3,8 @@ import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
 import axios from "axios";
 import chalk from "chalk";
-import { RemoteFiles } from "./data";
-import type { PackageManager } from "../types";
+import { getRemoteFileURLs } from "./data";
+import type { Language, PackageManager } from "../types";
 
 async function processHandler(packageManager: PackageManager, rootPath: string): Promise<void> {
   const processName = "initializing 'package.json'";
@@ -44,9 +44,10 @@ async function processHandler(packageManager: PackageManager, rootPath: string):
   });
 }
 
-async function updatePackageJSON(path: string): Promise<void> {
+async function updatePackageJSON(path: string, projectType: Language): Promise<void> {
   const packageJSONPath = join(path, "package.json");
-  const { data } = await axios.get(RemoteFiles["package.json"]);
+  const remoteFiles = getRemoteFileURLs(projectType);
+  const { data } = await axios.get(remoteFiles["package.json"]);
   const serializedPackageJSON = await readFile(packageJSONPath, "utf-8");
   const parsedPackageJSON = JSON.parse(serializedPackageJSON);
   await writeFile(
@@ -67,7 +68,8 @@ async function updatePackageJSON(path: string): Promise<void> {
 export async function handlePackageJSON(
   packageManager: PackageManager,
   rootPath: string,
+  projectType: Language,
 ): Promise<void> {
   await processHandler(packageManager, rootPath);
-  await updatePackageJSON(rootPath);
+  await updatePackageJSON(rootPath, projectType);
 }
