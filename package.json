@@ -47,8 +47,8 @@
     "axios": "^1.4.0",
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
-    "inquirer": "^8.2.5",
-    "workerpool": "^6.4.0"
+    "inquirer": "8.2.6",
+    "workerpool": "6.5.1"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
